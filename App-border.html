@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heroes of Might and Magic 3 - Horn of the Abyss</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 800px;
+            position: relative;
+        }
+
+
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            /* Ensure content stays on top */
+        }
+
+        h1 {
+            margin-bottom: 0;
+        }
+
+        .items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 0;
+        }
+
+        .item {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .item.background {
+            background-image: url('./assets/Brown.png')
+        }
+
+        .item img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .red-player {
+           background-image: url('./assets/red_erased_border.png');
+            z-index: -1;
+            margin-bottom: 20px;
+        }
+        .blue-player {
+            background-image: url('./assets/blue_erased_border.png');
+            z-index: -1;
+        }
+        .player-container {
+            padding: 20px
+        
+        }
+
+        .item.disabled {
+            opacity: 0.5;
+        }
+
+        .item.enabled {
+            opacity: 1;
+        }
+
+        .item.skill {
+            width: 80px !important
+        }
+
+        .item img.disabled {
+            filter: grayscale(100%);
+        }
+
+        .row {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="red-player player-container">
+            <div class="items row">
+                <div class="item disabled background" id="tome-earth-red" onclick="toggleItem('tome-earth-red')">
+                    <img src="./assets/Artifact_Tome_of_Earth_Magic.gif"
+                        alt="Tome of Earth">
+                </div>
+                <div class="item disabled background" id="tome-air-red" onclick="toggleItem('tome-air-red')">
+                    <img src="./assets/Artifact_Tome_of_Air_Magic.gif" alt="Tome of Air">
+                </div>
+                <div class="item disabled background" id="tome-fire-red" onclick="toggleItem('tome-fire-red')">
+                    <img src="./assets/Artifact_Tome_of_Fire_Magic.gif"
+                        alt="Tome of Fire">
+                </div>
+                <div class="item disabled background" id="angel-wings-red" onclick="toggleItem('angel-wings-red')">
+                    <img src="./assets/Artifact_Angel_Wings.gif"
+                        alt="Angel wings">
+                </div>
+            </div>
+            <div class="items row">
+                <div class="item disabled background" id="dimension-door-red" onclick="toggleItem('dimension-door-red')">
+                    <img src="./assets/Dimension_Door.png" alt="Dimension Door">
+                </div>
+                <div class="item disabled background" id="fly-red" onclick="toggleItem('fly-red')">
+                    <img src="./assets/Fly.png" alt="Fly">
+                </div>
+                <div class="item disabled background" id="town-portal-red" onclick="toggleItem('town-portal-red')">
+                    <img src="./assets/Town_Portal.png" alt="Town Portal">
+                </div>
+                <div class="item disabled background" id="spellbinders-hat-red" onclick="toggleItem('spellbinders-hat-red')">
+                    <img src="./assets/Artifact_Spellbinder%27s_Hat.gif" alt="Spellbinderss Hat">
+                </div>
+            </div>
+            <div class="items row">
+                <div class="item disabled skill" id="air-magic-red" onclick="toggleItem('air-magic-red')">
+                    <img src="./assets/Expert_Air_Magic_large.png" alt="Air Magic"
+                        style="width:80px!important">
+                </div>
+                <div class="item disabled skill" id="earth-magic-red" onclick="toggleItem('earth-magic-red')">
+                    <img src="./assets/Expert_Earth_Magic_large.png" alt="Earth Magic"
+                        style="width:80px!important">
+                </div>
+                <div class="item disabled skill" id="logistics-red" onclick="toggleItem('logistics-red')">
+                    <img src="./assets/Expert_Logistics_large.png" alt="Logistics"
+                        style="width:80px!important">
+                </div>
+                <div class="item disabled skill" id="scouting-red" onclick="toggleItem('scouting-red')">
+                    <img src="./assets/Expert_Scouting_large.png" alt="Scouting"
+                        style="width:80px!important">
+                </div>
+                
+            </div>
+        </div>
+        <div class="blue-player player-container">
+            <div class="items row">
+                <div class="item disabled background" id="tome-earth-blue" onclick="toggleItem('tome-earth-blue')">
+                    <img src="./assets/Artifact_Tome_of_Earth_Magic.gif"
+                        alt="Tome of Earth">
+                </div>
+                <div class="item disabled background" id="tome-air-blue" onclick="toggleItem('tome-air-blue')">
+                    <img src="./assets/Artifact_Tome_of_Air_Magic.gif" alt="Tome of Air">
+                </div>
+                <div class="item disabled background" id="tome-fire-blue" onclick="toggleItem('tome-fire-blue')">
+                    <img src="./assets/Artifact_Tome_of_Fire_Magic.gif"
+                        alt="Tome of Fire">
+                </div>
+                <div class="item disabled background" id="angel-wings-blue" onclick="toggleItem('angel-wings-blue')">
+                    <img src="./assets/Artifact_Angel_Wings.gif"
+                        alt="Angel wings">
+                </div>
+            </div>
+            <div class="items row">
+                <div class="item disabled background" id="dimension-door-blue" onclick="toggleItem('dimension-door-blue')">
+                    <img src="./assets/Dimension_Door.png" alt="Dimension Door">
+                </div>
+                <div class="item disabled background" id="fly-blue" onclick="toggleItem('fly-blue')">
+                    <img src="./assets/Fly.png" alt="Fly">
+                </div>
+                <div class="item disabled background" id="town-portal-blue" onclick="toggleItem('town-portal-blue')">
+                    <img src="./assets/Town_Portal.png" alt="Town Portal">
+                </div>
+                <div class="item disabled background" id="spellbinders-hat-blue" onclick="toggleItem('spellbinders-hat-blue')">
+                    <img src="./assets/Artifact_Spellbinder%27s_Hat.gif" alt="Spellbinderss Hat">
+                </div>
+            </div>
+            <div class="items row">
+                <div class="item disabled skill" id="air-magic-blue" onclick="toggleItem('air-magic-blue')">
+                    <img src="./assets/Expert_Air_Magic_large.png" alt="Air Magic"
+                        style="width:80px!important">
+                </div>
+                <div class="item disabled skill" id="earth-magic-blue" onclick="toggleItem('earth-magic-blue')">
+                    <img src="./assets/Expert_Earth_Magic_large.png" alt="Earth Magic"
+                        style="width:80px!important">
+                </div>
+                <div class="item disabled skill" id="logistics-blue" onclick="toggleItem('logistics-blue')">
+                    <img src="./assets/Expert_Logistics_large.png" alt="Logistics"
+                        style="width:80px!important">
+                </div>
+                <div class="item disabled skill" id="scouting-blue" onclick="toggleItem('scouting-blue')">
+                    <img src="./assets/Expert_Scouting_large.png" alt="Scouting"
+                        style="width:80px!important">
+                </div>
+                
+            </div>
+        </div>
+        
+
+
+    </div>
+
+    <script>
+        const itemsState = {
+            'dimension-door-red': false,
+            'fly-red': false,
+            'town-portal-red': false,
+            'spellbinders-hat-red': false,
+            'tome-earth-red': false,
+            'tome-air-red': false,
+            'angel-wings-red': false,
+            'tome-fire-red': false,
+            'logistics-red': false,
+            'scouting-red': false,
+            'air-magic-red': false,
+            'earth-magic-red': false,
+
+            'dimension-door-blue': false,
+            'fly-blue': false,
+            'town-portal-blue': false,
+            'spellbinders-hat-blue': false,
+            'tome-earth-blue': false,
+            'tome-air-blue': false,
+            'angel-wings-blue': false,
+            'tome-fire-blue': false,
+            'logistics-blue': false,
+            'scouting-blue': false,
+            'air-magic-blue': false,
+            'earth-magic-blue': false
+        };
+
+        function toggleItem(itemId) {
+            itemsState[itemId] = !itemsState[itemId];
+            const itemElement = document.getElementById(itemId);
+            if (itemsState[itemId]) {
+                itemElement.classList.remove('disabled');
+                itemElement.classList.add('enabled');
+            } else {
+                itemElement.classList.remove('enabled');
+                itemElement.classList.add('disabled');
+            }
+        }
+    </script>
+</body>
+
+</html>
